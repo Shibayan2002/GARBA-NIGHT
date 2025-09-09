@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navarativ Special - Ticket Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same styles you had earlier */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #c33764 0%, #1d2671 100%); color: #333; line-height: 1.6; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; padding: 20px 0; color: white; }
+        header h1 { font-size: 2.8rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); color: #ffdf00; }
+        header h2 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .card { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; margin-bottom: 25px; }
+        .event-info { padding: 25px; background: linear-gradient(to bottom, #ff9933, #ffdf00); }
+        .event-info h2 { font-size: 2rem; color: #1d2671; margin-bottom: 15px; text-align: center; }
+        .event-meta { display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; justify-content: center; }
+        .meta-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.8); padding: 10px 15px; border-radius: 8px; flex: 1; min-width: 200px; max-width: 300px; }
+        .meta-item i { color: #c33764; font-size: 1.5rem; }
+        .ticket-options { padding: 20px; background: linear-gradient(to right, #1d2671, #c33764); color: white; }
+        .ticket-options h3 { text-align: center; font-size: 1.8rem; margin-bottom: 20px; color: #ffdf00; }
+        .tickets { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+        .ticket { background: #f8f9fa; border-radius: 10px; padding: 20px; flex: 1; min-width: 250px; max-width: 320px; text-align: center; border: 3px solid #ffdf00; transition: 0.3s; color: #333; }
+        .ticket:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-color: #ff9933; }
+        .ticket h4 { font-size: 1.5rem; color: #1d2671; margin-bottom: 10px; }
+        .price { font-size: 2rem; font-weight: bold; color: #c33764; margin: 15px 0; }
+        .ticket ul { text-align: left; margin: 15px 0; padding-left: 20px; }
+        .btn { display: inline-block; background: #c33764; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; font-size: 1.1rem; }
+        .btn:hover { background: #1d2671; }
+        .payment-section { padding: 25px; text-align: center; background: white; display: none; }
+        .upi-id { font-size: 1.2rem; font-weight: bold; color: #1d2671; background: #f0f0f0; padding: 10px; border-radius: 8px; margin: 15px 0; word-break: break-all; font-family: monospace; }
+        footer { text-align: center; padding: 20px; color: white; margin-top: 20px; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Navarativ Special</h1>
+        <h2>SARBA JIGHT</h2>
+        <p>Experience the joy of Gujarati culture with dance, music, and authentic cuisine</p>
+    </header>
+    <!-- Moving Important Notice -->
+<div style="background:#ffdf00; color:#1d2671; padding:10px 0; font-weight:bold; font-size:1rem; border-top:2px solid #c33764; border-bottom:2px solid #c33764; overflow:hidden;">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+        ⚠️ Important: You will receive your ticket confirmation 
+        <u>only if you fill the Google Form and attach your payment screenshot</u>.
+    </marquee>
+</div>
+
+
+    <!-- Event Info -->
+    <div class="card">
+        <div class="event-info">
+            <h2>Event Details</h2>
+            <div class="event-meta">
+                <div class="meta-item"><i class="fas fa-calendar-alt"></i><span>26th & 27th September 2025</span></div>
+                <div class="meta-item"><i class="fas fa-clock"></i><span>6:00 PM Onwards</span></div>
+                <div class="meta-item"><i class="fas fa-map-marker-alt"></i><span>D.N.H.S. School Playground</span></div>
+                <div class="meta-item"><i class="fas fa-location-arrow"></i><span>Six Mile, Near Concrete Industry, Udharbond</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tickets -->
+    <div class="card">
+        <div class="ticket-options">
+            <h3>Ticket Options</h3>
+            <div class="tickets">
+                <div class="ticket">
+                    <h4>Gold Pass</h4>
+                    <div class="price">₹499</div>
+                    <p>Premium Dandiya Experience</p>
+                    <ul>
+                        <li>Free Dandiya Sticks</li>
+                        <li>Free refreshment with Gujarati dishes</li>
+                        <li>Premium Gallery for rest</li>
+                        <li>Priority Access</li>
+                    </ul>
+                    <button class="btn" onclick="selectTicket('Gold Pass', 499)">Select Gold Pass</button>
+                </div>
+                <div class="ticket">
+                    <h4>Entry Pass</h4>
+                    <div class="price">₹199</div>
+                    <p>Standard Event Access</p>
+                    <ul>
+                        <li>Event Entry</li>
+                        <li>Access to food stalls</li>
+                        <li>General seating area</li>
+                        <li>Dandiya sticks available for purchase</li>
+                    </ul>
+                    <button class="btn" onclick="selectTicket('Entry Pass', 199)">Select Entry Pass</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Section -->
+<!-- Payment Section -->
+<div class="card payment-section" id="paymentSection">
+    <h3>Complete Your Payment</h3>
+    <div class="payment-info">
+        <div class="payment-details">
+            <div><strong>Ticket Type:</strong> <span id="selectedTicketType">Not selected</span></div>
+            <div><strong>Quantity:</strong> <span id="selectedQuantity">1</span></div>
+            <div><strong>Total:</strong> ₹<span id="totalAmount">0</span></div>
+        </div>
+
+        <h5>Scan & Pay via UPI</h5>
+        <img src="qr.jpg" alt="UPI QR Code" style="width: 220px; margin: 15px auto; border: 2px solid #ddd; border-radius: 8px;">
+        <p class="upi-id">Q694361217@ybl</p>
+
+        <!-- UPI deep link button -->
+        <button class="btn" id="upiPayBtn">Pay Now in UPI App</button>
+
+        <p style="margin-top:20px;">After payment, confirm your booking:</p>
+
+        <!-- 🔹 Google Form Button (highlighted) -->
+        <a href="https://forms.gle/vEJpKhDc5LxiF2Vo8" target="_blank" 
+           class="btn" 
+           style="background:#ff9933; color:#1d2671; font-weight:bold; border:2px solid #ffdf00;">
+           📝 Confirm Payment (Google Form)
+        </a>
+
+        <!-- 🔹 Important Bold Notice -->
+        <p style="margin-top:20px; font-weight:bold; color:#c33764; font-size:1rem;">
+            ⚠️ You will receive your ticket confirmation <u>only if you fill the Google Form and attach your payment screenshot</u>.
+        </p>
+    </div>
+</div>
+
+</div>
+
+
+    <footer>
+        <p>© 2025 Subho Drishti Banquet Hall. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    let selectedTicket = null;
+    let ticketCount = 1;
+
+    function selectTicket(ticketType, ticketPrice) {
+        selectedTicket = { type: ticketType, price: ticketPrice };
+        const count = prompt(`How many ${ticketType} tickets would you like?`, "1");
+        if (count && !isNaN(count) && parseInt(count) > 0) {
+            ticketCount = parseInt(count);
+            showPaymentSection();
+        } else {
+            alert("Please enter a valid number of tickets");
+        }
+    }
+
+    function showPaymentSection() {
+        const totalAmount = selectedTicket.price * ticketCount;
+        document.getElementById('selectedTicketType').textContent = selectedTicket.type;
+        document.getElementById('selectedQuantity').textContent = ticketCount;
+        document.getElementById('totalAmount').textContent = totalAmount;
+        document.getElementById('paymentSection').style.display = 'block';
+        document.getElementById('paymentSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 🔹 Add this part after your existing code
+    function generateUPILink(amount) {
+        const upiId = "Q694361217@ybl";
+        const name = "Subho Drishti Banquet Hall";
+        const note = "Navarati Ticket Booking";
+        return `upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tn=${encodeURIComponent(note)}`;
+    }
+
+    document.getElementById('upiPayBtn').addEventListener('click', function() {
+        const totalAmount = document.getElementById('totalAmount').textContent;
+        if (parseFloat(totalAmount) > 0) {
+            const link = generateUPILink(totalAmount);
+            window.location.href = link;
+        } else {
+            alert("Please select a ticket first.");
+        }
+    });
+</script>
+
+</body>
+</html>
